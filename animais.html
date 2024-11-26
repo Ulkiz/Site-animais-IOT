@@ -4,36 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro do Pet</title>
+
+  <!-- Link com o arquivo css -->
   <link rel="stylesheet" href="animais.css">
+  
+  <!-- Icon para a pagina -->
   <link rel="icon" href="pata.png" type="image/x-icon">
 </head>
 <body>
 
 <div class="pet-card">
+  <!--upload da foto do pet (por padrao usado a placeholder) -->
   <label for="photoUpload">
     <img src="https://via.placeholder.com/100" alt="Foto do pet" class="pet-foto" id="petfoto">
   </label>
+  
   <input type="file" id="photoUpload" accept="image/*" style="display: none;" onchange="preview(event)">
 
   <div class="info">
+    <!--AREA DE REGISTRO-->
+    <!--nome do pet -->
     <label for="nome">Nome:</label>
     <input type="text" id="petnome" placeholder="Digite o nome do pet">
     
+    <!-- idade do pet -->
     <label for="idade">Idade:</label>
     <input type="number" id="petidade" placeholder="Digite a idade do pet" min="0" required>
     
+    <!--raça do pet -->
     <label for="tipo">Raça do pet:</label>
     <input type="text" id="petraca" placeholder="Digite a raça do pet">
     
+    <!--salvar o cadastro -->
     <button class="enviar_botao" onclick="salvarPet()">Salvar</button>
   </div>
 
+  <!-- DIRETORIO PARA A PAGINA DE VISUALIZAÇÃO -->
   <a href="aba2.html" target="_blank">
     <button class="aba2link_botao">Ver Pets</button>
   </a>
 
 </div>
 
+<!-- Link para o arquivo JavaScript que implementa a lógica da página -->
 <script src="animais.js"></script>
 </body>
 </html>
