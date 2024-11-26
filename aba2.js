@@ -1,15 +1,15 @@
-// Função para exibir os pets (agora carregando da API local)
+// Função para exibir os pets
 function exibirPets() {
   const container = document.getElementById('pets-container');
 
   // Carregar pets da API local
-  fetch('http://localhost:3000/api/pets') // URL da sua API local
+  fetch('http://localhost:3000/api/pets')
     .then(response => response.json())
     .then(pets => {
       if (pets.length === 0) {
         container.innerHTML = '<p>Nenhum pet registrado ainda.</p>';
       } else {
-        container.innerHTML = ''; // Limpa a área antes de adicionar novos cards
+        container.innerHTML = '';
         pets.forEach(pet => exibirCardPet(pet, container)); // Exibe cada pet
       }
     })
@@ -43,7 +43,7 @@ function exibirCardPet(pet, container) {
   const verMaisBtn = document.createElement('button');
   verMaisBtn.textContent = 'Ver mais';
   verMaisBtn.classList.add('ver-mais-botao');
-  verMaisBtn.onclick = () => alternarInformacoes(pet, petCard); // Alterna as informações ao clicar
+  verMaisBtn.onclick = () => alternarInformacoes(pet, petCard); // Alterna as informações ao clicar "ver mais"
 
   petCard.appendChild(verMaisBtn);
 
@@ -60,7 +60,6 @@ function alternarInformacoes(pet, petCard) {
     infoAdicional.innerHTML = `
       <p><strong>Temperatura:</strong> ${pet.temperatura || 'N/D'}</p>
       <p><strong>Frequência cardíaca:</strong> ${pet.saude || 'N/D'}</p>
-      <p><strong>Raça:</strong> ${pet.localizacao || 'N/D'}</p>
     `;
     petCard.appendChild(infoAdicional);
   } else {
