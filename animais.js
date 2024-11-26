@@ -1,7 +1,7 @@
 // Função para fazer upload da imagem e mostrar a prévia
 function preview(event) {
-  const photo = document.getElementById('petfoto');  // O id correto da imagem a ser exibida
-  const file = event.target.files[0];  // Captura o arquivo da imagem selecionada
+  const photo = document.getElementById('petfoto');
+  const file = event.target.files[0];  
   if (file) {
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -11,7 +11,7 @@ function preview(event) {
   }
 }
 
-// Função para salvar o pet na API local
+// Função para salvar na API local
 function salvarPet() {
   const nome = document.getElementById('petnome').value;
   const idade = document.getElementById('petidade').value;
@@ -31,11 +31,11 @@ function salvarPet() {
   .then(response => response.json())  // resposta seja um JSON
   .then(data => {
     console.log(data);  // Isso deve exibir o pet adicionado no console para depuração
-    alert('Pet salvo com sucesso!');  // Confirmação de que o pet foi salvo
+    alert('Pet salvo com sucesso!');  // Confirmação de que o pet foi salvo no site
     limparFormulario()
   })
   .catch(error => {
-    console.error('Erro ao salvar o pet:', error);
+    console.error('Erro ao salvar o pet:', error); // caso aconteça de dar errado
     alert('Erro ao salvar o pet!');
   });
 }
@@ -46,6 +46,6 @@ function limparFormulario() {
   document.getElementById('petnome').value = '';
   document.getElementById('petidade').value = '';
   document.getElementById('petraca').value = '';
-  document.getElementById('petfoto').src = 'https://via.placeholder.com/100';  // Reseta a foto para o placeholder
+  document.getElementById('petfoto').src = 'https://via.placeholder.com/100';
 }
 
