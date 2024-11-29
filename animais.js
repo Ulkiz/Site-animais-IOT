@@ -5,7 +5,7 @@ function preview(event) {
   if (file) {
     const reader = new FileReader();
     reader.onload = function(e) {
-      photo.src = e.target.result;  // Exibe a imagem selecionada como prévia
+      photo.src = e.target.result;
     };
     reader.readAsDataURL(file);  // Lê o arquivo de imagem e converte para uma URL
   }
@@ -30,7 +30,7 @@ function salvarPet() {
   })
   .then(response => response.json())  // resposta seja um JSON
   .then(data => {
-    console.log(data);  // Isso deve exibir o pet adicionado no console para depuração
+    console.log(data);
     alert('Pet salvo com sucesso!');  // Confirmação de que o pet foi salvo no site
     limparFormulario()
   })
